@@ -1,3 +1,5 @@
+from itertools import count
+
 import data
 from typing import Optional
 
@@ -37,12 +39,51 @@ def selection_sort(values:list[int]) -> None:
 
 
 # Part 1
-
+def selection_sort_books(books: list[data.Book])->list[data.Book]:
+    for idx in range(len(books) - 1):
+        mindex = idx
+        for j in range(idx+1, len(books)):
+            if books[j].title.lower() < books[mindex].title.lower():
+                mindex = j
+        if mindex != idx:
+            temp = books[idx]
+            books[idx] = books[mindex]
+            books[mindex] = temp
+    return books
 
 # Part 2
-
+def swap_case(string1: str)->str:
+    new_word = ""
+    for letter in string1:
+        if letter.isalpha():
+            if letter.islower():
+                new_word += letter.upper()
+            else:
+                new_word += letter.lower()
+        else:
+            new_word += letter
+    return new_word
 
 # Part 3
-
+def str_translate(string1: str, old: str, new: str)->str:
+    new_word = ""
+    for letter in string1:
+        if letter.lower() == old or letter.upper() == old:
+            new_word += new
+        else:
+            new_word += letter
+    return new_word
 
 # Part 4
+def histogram(phrase: str):
+    phrase = phrase.lower()
+    str_list: list[str] = phrase.split()
+    word_counts: dict[str, int] = {}
+
+    for word in str_list:
+        if word in word_counts:
+            word_counts[word] += 1
+        else:
+            word_counts[word] = 1
+
+    return word_counts
