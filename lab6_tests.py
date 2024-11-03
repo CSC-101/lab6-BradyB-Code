@@ -64,16 +64,64 @@ class TestCases(unittest.TestCase):
 
 
     # Part 1
+    def test_selection_sort_books_1(self):
+        input = [data.Book(["Stephen King"], "IT"),data.Book(["JK Rowling"], "Harry Potter")]
+        result = lab6.selection_sort_books(input)
+        expected = [data.Book(["JK Rowling"], "Harry Potter"), data.Book(["Stephen King"], "IT")]
+        self.assertEqual(expected, result)
 
+    def test_selection_sort_books_2(self):
+        input = [data.Book(["Dr. Seuss"], "Cat in the Hat"),data.Book(["EB White"], "Stuart Little"),
+                    data.Book(["Edward Ashton"], "Mickey 7")]
+        result = lab6.selection_sort_books(input)
+        expected = [data.Book(["Dr. Seuss"], "Cat in the Hat"), data.Book(["Edward Ashton"], "Mickey 7"),
+                 data.Book(["EB White"], "Stuart Little")]
+        self.assertEqual(expected, result)
 
     # Part 2
+    def test_swap_case_1(self):
+        input = "Bananas"
+        result = lab6.swap_case(input)
+        expected = "bANANAS"
+        self.assertEqual(expected, result)
 
+    def test_swap_case_2(self):
+        input = "aPPLe100"
+        result = lab6.swap_case(input)
+        expected = "ApplE100"
+        self.assertEqual(expected, result)
 
     # Part 3
+    def test_str_translate_1(self):
+        input = "Beaches"
+        result = lab6.str_translate(input, "e", "x")
+        expected = "Bxachxs"
+        self.assertEqual(expected, result)
 
+    def test_str_translate_2(self):
+        input = "Abracadabra"
+        result = lab6.str_translate(input, "b", "t")
+        expected = "Atracadatra"
+        self.assertEqual(expected, result)
+
+    def test_str_translate_3(self):
+        input = "Abracadabra"
+        result = lab6.str_translate(input, "a", "o")
+        expected = "obrocodobro"
+        self.assertEqual(expected, result)
 
     # Part 4
+    def test_histogram_1(self):
+        input = "eat to live do not live to eat"
+        result = lab6.histogram(input)
+        expected = {"eat": 2, "to": 2, "live": 2, "do": 1, "not": 1}
+        self.assertEqual(expected, result)
 
+    def test_histogram_2(self):
+        input = "onion pepper corn orange onion onion corn beansprout"
+        result = lab6.histogram(input)
+        expected = {"onion": 3, "pepper": 1, "corn": 2, "orange": 1, "beansprout": 1}
+        self.assertEqual(expected, result)
 
 
 
